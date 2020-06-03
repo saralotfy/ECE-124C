@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registration | Healthy Food</title>
+<style>
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;}
+input[type=submit] {
+  background-color: rgb(97, 12, 64);
+  color: white;}
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;}
+</style>
+</head>
+<body>
+
+<h1 style="text-align: center; color:  rgb(97, 12, 64);">Healthy Food</h1>
+<h1 style="text-align: center; color:  rgb(97, 12, 64);">Registration Form</h1>
+
+<div class="container">
+  <form action="Home.html">
+    <label for="firstname">First name</label>
+    <input type="text" id="firstname" name="firstname" required>
+    <label for="lastname">Last name</label>
+    <input type="text" id="lastname" name="lastname" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+    <label for="email">Adress</label>
+    <input type="adress" id="adress" name="adress" required>
+	<div class="inputfield">
+		<label>Phone number </label>
+		<input type="text"  name="phone"  class="input" pattern="\d{11}" title="must consist of 11 numbers." required  >
+	 </div>   
+    <label for="psw">Password</label>
+    <input type="password" id="psw" name="psw" size="8" maxlength="8" pattern="(?=.*\d)(?=.*[A-Z])\w{8}" 
+    title="Must start with upperCaseLetter,include only 8 characters ,one digit at least,one special character and no white spaces" required>	
+    <input type="submit" value="register">
+  </form>
+</div>
+	
+<script>
+var myInput = document.getElementById("psw");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+myInput.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+myInput.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+myInput.onkeyup = function() {
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  if(myInput.value.length = 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+</script>
+
+</body>
+</html>
